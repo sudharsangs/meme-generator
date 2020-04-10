@@ -7,7 +7,8 @@
     justify-content: space-around;
     background: white;
     align-items: center;
-    max-width: 40%;
+    min-width: auto;
+    max-width: 80%;
     padding-bottom: 5vh;
     padding-left: 4vh;
     padding-right: 4vh;

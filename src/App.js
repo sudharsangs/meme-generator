@@ -35,7 +35,7 @@ function App() {
     if(meme){
         return(
             <div className={styles.App}>
-                <img src={meme} alt="Custom Meme"/>
+                <img src={meme} className={styles.imgClass} alt="Custom Meme"/>
             </div>
         )
     }
@@ -43,7 +43,7 @@ function App() {
         <div className={styles.App}>
             {template && (
                 <>
-                    <form onSubmit = {async e => {
+                    <form className={styles.frmClass} onSubmit = {async e => {
                         e.preventDefault();
                         const params = {
                             template_id : template.id,
