@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+.App {
+    min-height: 100vh;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%) ;
+    background-size: 100%;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Righteous', cursive;
+}
+
+
+.memes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+

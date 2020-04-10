@@ -1,6 +1,14 @@
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
-import Meme from './components/Meme'
+import Meme from './components/Meme';
+import styles from './App.module.css'
+
+
+const objectToQueryParam = (obj) => {
+    const params = Object.entries(obj).map(([key,value]) => `${key}=${value}`)
+    return '?' + params.join('&')
+    return '?'
+}
 
 function App() {
 
@@ -8,6 +16,7 @@ function App() {
     const [template,setTemplate] = useState(null);
     const [topText,setTopText] = useState('');
     const [bottomText,setBottomText] = useState('');
+    const [meme,setMeme] = useState(null);
 
     const url = 'https://api.imgflip.com/get_memes';
 
@@ -22,8 +31,16 @@ function App() {
         setTemplates(response.data.data.memes);
         console.log(response.data.data.memes);
     }
+
+    if(meme){
+        return(
+            <div className={styles.App}>
+                <img src={meme} alt="Custom Meme"/>
+            </div>
+        )
+    }
      return(
-        <div>
+        <div className={styles.App}>
             {template && (
                 <>
                     <form onSubmit = {async e => {
@@ -32,12 +49,13 @@ function App() {
                             template_id : template.id,
                             text0: topText,
                             text1: bottomText,
-                            username: process.env.REACT_APP_IMGFLIP_USERNAME,
-                            password: process.env.REACT_APP_IMGFLIP_PASSWORD
+                            username: 'devsudo',
+                            password: 'itisvisible'
                         }
-                        const res = await axios.post('https://api.imgflip.com/caption_image')
+                        const res = await axios.post(`https://api.imgflip.com/caption_image${objectToQueryParam(params)}`);
+                        setMeme(res.data.data.url);
                     }}>
-                        <Meme template={template}/>
+                        <Meme className={styles.memes}template={template}/>
                         <input 
                             type="text" 
                             placeholder="Top Text" 
@@ -63,6 +81,7 @@ function App() {
                    {templates.map(template => {
                     return (
                      <Meme 
+                        className={styles.memes}
                         template={template}
                         onClick={() => {
                             setTemplate(template);

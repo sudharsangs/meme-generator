@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './Meme.module.css'
 
 const Meme = ({template,onClick}) => {
     return(
@@ -6,8 +7,8 @@ const Meme = ({template,onClick}) => {
         key={template.id} 
         src={template.url} 
         alt={template.name}
-        style={{width:200}}
         onClick={onClick}
+        className={styles.meme}
     />
     )
 }

@@ -1,0 +1,16 @@
+.meme {
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(71,71,71,0.5);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: white;
+    align-items: center;
+    max-width: 40%;
+    padding-bottom: 5vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
+    padding-top: 5vh;
+    text-align: center;
+}
