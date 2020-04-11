@@ -34,8 +34,9 @@ function App() {
 
     if(meme){
         return(
-            <div className={styles.App}>
+            <div>
                 <img src={meme} className={styles.imgClass} alt="Custom Meme"/>
+                <h3>Save the image and share it on social media</h3>
             </div>
         )
     }
@@ -55,7 +56,7 @@ function App() {
                         const res = await axios.post(`https://api.imgflip.com/caption_image${objectToQueryParam(params)}`);
                         setMeme(res.data.data.url);
                     }}>
-                        <Meme className={styles.memes}template={template}/>
+                        <Meme template={template}/>
                         <input 
                             type="text" 
                             placeholder="Top Text" 
